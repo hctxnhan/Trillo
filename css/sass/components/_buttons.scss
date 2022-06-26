@@ -1,0 +1,93 @@
+//This file you will create your style for buttons inside of the project
+.btn--inline {
+  display: inline-block;
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  transition: all 0.2s;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    color: black;
+  }
+
+  &:focus {
+    animation: pulsate 1s infinite;
+  }
+}
+
+.btn--cta {
+  border: none;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color-primary-light),
+    var(--color-primary-dark)
+  );
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 75px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &-visible {
+    display: inline-block;
+    padding: 2rem 7.5rem;
+    height: 100%;
+    width: 100%;
+    transition: all 0.2s;
+    opacity: 1;
+  }
+
+  &-invisible {
+    opacity: 0;
+    padding: 2rem 0rem;
+    display: inline-block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -100%;
+    left: 0;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-image: linear-gradient(
+      to bottom right,
+      var(--color-primary-dark),
+      var(--color-primary-light)
+    );
+  }
+
+  &:hover &-invisible {
+    opacity: 1;
+    top: 0;
+  }
+
+  &:hover &-visible {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  &:focus {
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
